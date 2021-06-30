@@ -9,61 +9,58 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: Text(
-            "Evaluation",
-          ),
-        ),
-        body: Row(
+        body: Column(
           children: <Widget>[
-            Expanded(
-              child: Center(
-                child: Container(
+            Padding(padding: EdgeInsets.only(top: 100)),
+            Row(
+              children: [
+                Text(
+                  "My Body",
+                  style: TextStyle(fontSize: 30),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Padding(padding: EdgeInsets.only(top: 150)),
+                Text(
+                  "Basics",
+                  style: TextStyle(fontSize: 25),
+                )
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 30),
+                  width: 150,
+                  height: 150,
                   color: Colors.red,
-                  width: 200,
-                  margin: EdgeInsets.all(20),
-                  height: 200,
                   child: Center(
-                    child: Text(
-                      "72 kg weight",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    ),
-                  ),
+                      child: Text("72 kg", style: TextStyle(fontSize: 25))),
                 ),
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Container(
+                Container(
+                  margin: EdgeInsets.only(left: 30),
+                  width: 150,
+                  height: 150,
                   color: Colors.purple,
-                  width: 200,
-                  margin: EdgeInsets.all(20),
-                  height: 200,
                   child: Center(
-                    child: Text(
-                      "175 cm height",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    ),
-                  ),
+                      child: Text("175 cm", style: TextStyle(fontSize: 25))),
                 ),
-              ),
+              ],
             ),
-            Expanded(
-              child: Center(
-                child: Container(
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 30,top: 20),
+                  width: 330,
+                  height: 150,
                   color: Colors.blue,
-                  width: 200,
-                  height: 200,
                   child: Center(
-                    child: Text(
-                      "Boxing, Gym",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    ),
-                  ),
+                      child: Text("175 cm", style: TextStyle(fontSize: 25))),
                 ),
-              ),
-            ),
+              ],
+            )
           ],
         ),
       ),
