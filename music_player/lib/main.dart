@@ -4,7 +4,7 @@ import 'MusicPlayer.dart';
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xff1A1C25),
       body: MusicPlayer(),
     ),
   ));
