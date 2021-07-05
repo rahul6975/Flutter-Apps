@@ -40,6 +40,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.white70,
         appBar: AppBar(
           title: Text("Music App"),
         ),
