@@ -7,17 +7,17 @@ void main() {
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: Colors.black),
       ),
-      home: HomeScreen(),
+      home: MyApp(),
     ),
   );
 }
 
-class HomeScreen extends StatefulWidget {
+class MyApp extends StatefulWidget {
   @override
   _HomeClassState createState() => _HomeClassState();
 }
 
-class _HomeClassState extends State<HomeScreen> {
+class _HomeClassState extends State<MyApp> {
   int weight = 60;
   int height = 170;
   int age = 20;
@@ -41,12 +41,8 @@ class _HomeClassState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "BMI Calculator",
       theme: new ThemeData(
-          brightness: Brightness.light,
-          primaryColor: Colors.black,
-          accentColor: Colors.red,
-          backgroundColor: Colors.black),
+          primaryColor: Colors.black, backgroundColor: Colors.black),
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
