@@ -3,9 +3,14 @@ import 'package:lifecycle_practice/TasksData.dart';
 import 'package:lifecycle_practice/tasksDetials.dart';
 
 void main() {
-  runApp(MaterialApp(home: MyApp(), routes: {
-    'details': (context) => TasksDetails(),
-  }));
+  runApp(
+    MaterialApp(
+      home: MyApp(),
+      routes: {
+        'details': (context) => TasksDetails(),
+      },
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

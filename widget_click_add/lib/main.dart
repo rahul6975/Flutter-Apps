@@ -26,7 +26,9 @@ class _MyAppState extends State<MyApp> {
             height: 200,
             child: Row(
               children: [
-                Center(child: Text("Tune muhje kyu add kiya ?")),
+                Center(
+                  child: Text("Tune muhje kyu add kiya ?"),
+                ),
               ],
             ),
           ),

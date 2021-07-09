@@ -17,7 +17,8 @@ class _TasksDetailsState extends State<TasksDetails> {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: Text("Title : ${data.title} \n Desc = ${data.desc}"),
+            child: Text(
+                "Title : ${data.title} \n Desc = ${data.desc} \n  Date = ${data.date}"),
           ),
         ],
       ),
