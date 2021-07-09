@@ -55,7 +55,7 @@ class _HomeClassState extends State<HomeScreen> {
         body: Column(
           children: <Widget>[
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
@@ -86,11 +86,14 @@ class _HomeClassState extends State<HomeScreen> {
               width: 20,
               height: 40,
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text('Weight', style: TextStyle(color: Colors.white)),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text('Weight', style: TextStyle(color: Colors.white)),
+                ),
               ),
             ),
             SizedBox(
@@ -168,11 +171,14 @@ class _HomeClassState extends State<HomeScreen> {
               width: 20,
               height: 20,
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text('Height', style: TextStyle(color: Colors.white)),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text('Height', style: TextStyle(color: Colors.white)),
+                ),
               ),
             ),
             SizedBox(
@@ -252,11 +258,14 @@ class _HomeClassState extends State<HomeScreen> {
               width: 20,
               height: 20,
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text('Age', style: TextStyle(color: Colors.white)),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text('Age', style: TextStyle(color: Colors.white)),
+                ),
               ),
             ),
             SizedBox(
@@ -276,41 +285,45 @@ class _HomeClassState extends State<HomeScreen> {
                   child: Row(
                     children: <Widget>[
                       Padding(
-                          padding: const EdgeInsets.all(11.0),
-                          child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: FlatButton(
-                                onPressed: () {
-                                  setState(() {
-                                    age--;
-                                  });
-                                },
-                                child: Image.asset(
-                                  'images/minus.png',
-                                  width: 15,
-                                  height: 15,
-                                ),
-                              ))),
+                        padding: const EdgeInsets.all(11.0),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: FlatButton(
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            child: Image.asset(
+                              'images/minus.png',
+                              width: 15,
+                              height: 15,
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Center(child: Text("$age")),
                       ),
                       Padding(
-                          padding: const EdgeInsets.all(11.0),
-                          child: Align(
-                              alignment: Alignment.centerRight,
-                              child: FlatButton(
-                                onPressed: () {
-                                  setState(() {
-                                    age++;
-                                  });
-                                },
-                                child: Image.asset(
-                                  'images/plus.png',
-                                  width: 15,
-                                  height: 15,
-                                ),
-                              ))),
+                        padding: const EdgeInsets.all(11.0),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: FlatButton(
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                            child: Image.asset(
+                              'images/plus.png',
+                              width: 15,
+                              height: 15,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -320,21 +333,26 @@ class _HomeClassState extends State<HomeScreen> {
               width: 20,
               height: 50,
             ),
-            Align(
-              child: ButtonTheme(
-                minWidth: 400.0,
-                height: 50.0,
-                buttonColor: Colors.green,
-                child: RaisedButton(
-                  onPressed: () {
-                    calculateBMI();
-                    Navigator.push(
+            Container(
+              margin: EdgeInsets.only(top: 50),
+              child: Align(
+                child: ButtonTheme(
+                  minWidth: 400.0,
+                  height: 50.0,
+                  buttonColor: Colors.green,
+                  child: RaisedButton(
+                    onPressed: () {
+                      calculateBMI();
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                Result(bmi: bmi, message: message)));
-                  },
-                  child: Text("Calculate"),
+                          builder: (context) =>
+                              Result(bmi: bmi, message: message),
+                        ),
+                      );
+                    },
+                    child: Text("Calculate"),
+                  ),
                 ),
               ),
             )
