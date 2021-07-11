@@ -85,7 +85,6 @@ class Meta {
         nextPage: json["next_page"],
         perPage: json["per_page"],
         totalCount: json["total_count"],
-        
       );
 
   Map<String, dynamic> toJson() => {
