@@ -2,8 +2,6 @@ import 'dart:convert';
 
 Teams teamsFromJson(String str) => Teams.fromJson(json.decode(str));
 
-
-
 String teamsToJson(Teams data) => json.encode(data.toJson());
 
 class Teams {
