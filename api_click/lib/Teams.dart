@@ -80,8 +80,6 @@ class Meta {
   int totalCount;
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-
-
         totalPages: json["total_pages"],
         currentPage: json["current_page"],
         nextPage: json["next_page"],
@@ -90,8 +88,6 @@ class Meta {
       );
 
   Map<String, dynamic> toJson() => {
-
-    
         "total_pages": totalPages,
         "current_page": currentPage,
         "next_page": nextPage,
