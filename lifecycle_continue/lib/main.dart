@@ -67,7 +67,6 @@ class _MyAppState extends State<MyApp> {
                 child: Image(
                   image: NetworkImage(url),
                 ),
-                
               ),
             ],
           ),
