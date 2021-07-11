@@ -5,6 +5,9 @@ Teams teamsFromJson(String str) => Teams.fromJson(json.decode(str));
 String teamsToJson(Teams data) => json.encode(data.toJson());
 
 class Teams {
+
+
+  
   Teams({
     required this.data,
     required this.meta,
@@ -94,5 +97,4 @@ class Meta {
         "per_page": perPage,
         "total_count": totalCount,
       };
-      
 }
