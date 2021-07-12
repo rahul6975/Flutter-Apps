@@ -19,6 +19,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Widget> list = [];
+
   void getApi() async {
     var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
     http.Response response = await http.get(url1);
@@ -26,8 +28,24 @@ class _MyAppState extends State<MyApp> {
 
     jsondData.forEach((element) {
       var model = America.fromJson(element);
-      print(model.state);
+      list.add(Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              model.name,
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ));
     });
+  }
+
+  void showApi(){
+    
   }
 
   @override
@@ -45,6 +63,16 @@ class _MyAppState extends State<MyApp> {
                   getApi();
                 },
                 child: Text("Get Api"),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  showApi();
+                },
+                child: Text("Show Api"),
               ),
             ],
           ),
