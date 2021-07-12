@@ -1,4 +1,5 @@
 import 'package:api_test/America.dart';
+import 'package:api_test/Details.dart';
 import 'package:api_test/SecondPage.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -21,8 +22,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
-
-  List<America> americaList = [];
+  List<Widget> list2 = [];
 
   void getApi() async {
     try {
@@ -46,6 +46,19 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           ));
+          list2.add(Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  model.notes,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ));
         });
       } else {
         print(response.statusCode);
@@ -60,6 +73,15 @@ class _MyAppState extends State<MyApp> {
       context,
       MaterialPageRoute(
         builder: (context) => SecondPage(list: list),
+      ),
+    );
+  }
+
+  void showDetails() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Details(list2: list2),
       ),
     );
   }
@@ -102,6 +124,21 @@ class _MyAppState extends State<MyApp> {
                       showApi();
                     },
                     child: Text("Show States"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 100),
+            child: Row(
+              children: <Widget>[
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDetails();
+                    },
+                    child: Text("Show States Details"),
                   ),
                 ),
               ],
