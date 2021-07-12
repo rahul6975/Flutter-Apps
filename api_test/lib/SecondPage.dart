@@ -7,11 +7,15 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         title: Text("America States"),
       ),
-      body: Column(
-        children: list,
+      body: Container(
+        margin: EdgeInsets.only(left: 10, top: 10),
+        child: Column(
+          children: list,
+        ),
       ),
     );
   }

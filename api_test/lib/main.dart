@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
         var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
         jsondData.forEach((i) {
           var model = America.fromJson(i);
+          print(model.name);
           list.add(Row(
             children: <Widget>[
               Expanded(
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
                   model.name,
                   style: TextStyle(
                     fontSize: 15,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ),
