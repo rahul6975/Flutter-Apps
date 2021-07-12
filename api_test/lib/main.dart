@@ -1,4 +1,5 @@
 import 'package:api_test/America.dart';
+import 'package:api_test/SecondPage.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -25,9 +26,9 @@ class _MyAppState extends State<MyApp> {
     var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
     http.Response response = await http.get(url1);
     var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
-
-    jsondData.forEach((element) {
-      var model = America.fromJson(element);
+    var element2 = Map<String,dynamic>();
+    jsondData.forEach((element2) {
+      var model = America.fromJson(element2);
       list.add(Row(
         children: <Widget>[
           Expanded(
@@ -44,8 +45,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void showApi(){
-    
+  void showApi() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SecondPage(list: list),
+      ),
+    );
   }
 
   @override
