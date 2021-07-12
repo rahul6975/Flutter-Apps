@@ -7,15 +7,19 @@ class TotalCases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange,
       appBar: AppBar(
         title: Text("Total Positive cases"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
-            "Total positive cases recorded : $positive",
-            style: TextStyle(fontSize: 15, color: Colors.black),
+          Container(
+            margin: EdgeInsets.only(left: 30),
+            child: Text(
+              "Total positive cases recorded : $positive",
+              style: TextStyle(fontSize: 15, color: Colors.black),
+            ),
           )
         ],
       ),

@@ -86,7 +86,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void showCases() {
-     Navigator.push(
+    Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => TotalCases(positive: positive),
