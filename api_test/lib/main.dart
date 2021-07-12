@@ -22,13 +22,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
 
+  List<America> americaList = [];
+
   void getApi() async {
     try {
       var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
       http.Response response = await http.get(url1);
       if (response.statusCode == 200) {
         var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
-        jsondData.forEach((var i) {
+        jsondData.forEach((i) {
           var model = America.fromJson(i);
           list.add(Row(
             children: <Widget>[
