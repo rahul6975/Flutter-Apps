@@ -64,30 +64,45 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange,
       appBar: AppBar(
         title: Text("API Call"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  getApi();
-                },
-                child: Text("Get Api"),
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(left: 150),
+              child: Row(
+                children: <Widget>[
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        getApi();
+                      },
+                      child: Center(child: Text("Get Api")),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-          Row(
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  showApi();
-                },
-                child: Text("Show Api"),
-              ),
-            ],
+          Container(
+            margin: EdgeInsets.only(left: 130),
+            child: Row(
+              children: <Widget>[
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showApi();
+                    },
+                    child: Text("Show States"),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
