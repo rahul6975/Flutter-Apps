@@ -23,26 +23,32 @@ class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
 
   void getApi() async {
-    var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
-    http.Response response = await http.get(url1);
-    if (response.statusCode == 200) {
-      var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
-      jsondData.forEach((element) {
-        var model = America.fromJson(element);
-        list.add(Row(
-          children: <Widget>[
-            Expanded(
-              child: Text(
-                model.name,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black,
+    try {
+      var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
+      http.Response response = await http.get(url1);
+      if (response.statusCode == 200) {
+        var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
+        jsondData.forEach((element) {
+          var model = America.fromJson(element);
+          list.add(Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  model.name,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ));
-      });
+            ],
+          ));
+        });
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e.toString()+" rahul");
     }
   }
 
