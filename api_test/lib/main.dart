@@ -28,8 +28,8 @@ class _MyAppState extends State<MyApp> {
       http.Response response = await http.get(url1);
       if (response.statusCode == 200) {
         var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
-        jsondData.forEach((element) {
-          var model = America.fromJson(element);
+        jsondData.forEach((var i) {
+          var model = America.fromJson(i);
           list.add(Row(
             children: <Widget>[
               Expanded(
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
         print(response.statusCode);
       }
     } catch (e) {
-      print(e.toString()+" rahul");
+      print(e.toString() + " rahul");
     }
   }
 
