@@ -12,8 +12,9 @@ class SecondPage extends StatelessWidget {
         title: Text("America States"),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 10, top: 10),
+        margin: EdgeInsets.only(left: 100, top: 10),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: list,
         ),
       ),

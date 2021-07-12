@@ -24,6 +24,8 @@ class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
   List<Widget> list2 = [];
 
+  bool visiblee = false;
+
   void getApi() async {
     try {
       var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
@@ -37,7 +39,7 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  model.name,
+                  "State Fetched : ${model.name}",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.white,
@@ -63,12 +65,15 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
           ));
+          setState(() {
+            visiblee = true;
+          });
         });
       } else {
         print(response.statusCode);
       }
     } catch (e) {
-      print(e.toString() + " rahul");
+      print(e.toString() + " exception caught");
     }
   }
 
@@ -144,6 +149,17 @@ class _MyAppState extends State<MyApp> {
                     },
                     child: Text("Show States Details"),
                   ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 90, top: 50),
+            child: Row(
+              children: <Widget>[
+                Visibility(
+                  visible: visiblee,
+                  child: Text("Api fectched successfully :)"),
                 ),
               ],
             ),
