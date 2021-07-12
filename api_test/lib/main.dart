@@ -1,6 +1,7 @@
 import 'package:api_test/America.dart';
 import 'package:api_test/Details.dart';
 import 'package:api_test/SecondPage.dart';
+import 'package:api_test/TotalCases.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -23,13 +24,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
   List<Widget> list2 = [];
-
+  int positive = 0;
   bool visiblee = false;
 
   void getApi() async {
     try {
       var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
+      var url2 =
+          Uri.parse('https://api.covidtracking.com/v1/states/AK/current.json');
       http.Response response = await http.get(url1);
+      http.Response response2 = await http.get(url2);
+      var jsondData2 =
+          convert.jsonDecode(response2.body) as Map<String, dynamic>;
+      positive = jsondData2['positive'];
+      print(positive);
       if (response.statusCode == 200) {
         var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
         jsondData.forEach((i) {
@@ -75,6 +83,15 @@ class _MyAppState extends State<MyApp> {
     } catch (e) {
       print(e.toString() + " exception caught");
     }
+  }
+
+  void showCases() {
+     Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TotalCases(positive: positive),
+      ),
+    );
   }
 
   void showApi() {
@@ -123,34 +140,58 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(left: 130),
-            child: Row(
-              children: <Widget>[
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      showApi();
-                    },
-                    child: Text("Show States"),
+          Visibility(
+            visible: visiblee,
+            child: Container(
+              margin: EdgeInsets.only(left: 130),
+              child: Row(
+                children: <Widget>[
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        showApi();
+                      },
+                      child: Text("Show States"),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(left: 100),
-            child: Row(
-              children: <Widget>[
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      showDetails();
-                    },
-                    child: Text("Show States Details"),
+          Visibility(
+            visible: visiblee,
+            child: Container(
+              margin: EdgeInsets.only(left: 100),
+              child: Row(
+                children: <Widget>[
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        showDetails();
+                      },
+                      child: Text("Show States Details"),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
+            ),
+          ),
+          Visibility(
+            visible: visiblee,
+            child: Container(
+              margin: EdgeInsets.only(left: 110),
+              child: Row(
+                children: <Widget>[
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        showCases();
+                      },
+                      child: Text("Show Total Cases"),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
