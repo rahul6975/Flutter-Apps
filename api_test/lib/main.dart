@@ -1,3 +1,4 @@
+import 'package:api_test/America.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -10,7 +11,6 @@ void main() {
   );
 }
 
-
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
@@ -19,16 +19,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String url = "";
   void getApi() async {
-    var url1 = Uri.parse('https://dog.ceo/api/breeds/image/random');
+    var url1 = Uri.parse('https://api.covidtracking.com/v1/states/info.json');
     http.Response response = await http.get(url1);
+    var jsondData = convert.jsonDecode(response.body) as List<dynamic>;
 
-    var jsonData = convert.jsonDecode(response.body) as Map<String, dynamic>;
-    setState(() {
-      url = jsonData['message'];
+    jsondData.forEach((element) {
+      var model = America.fromJson(element);
+      print(model.state);
     });
-    print(jsonData['message']);
   }
 
   @override
@@ -38,7 +37,18 @@ class _MyAppState extends State<MyApp> {
         title: Text("API Call"),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  getApi();
+                },
+                child: Text("Get Api"),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
