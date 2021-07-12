@@ -46,18 +46,22 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           ));
-          list2.add(Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  model.notes,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
+          list2.add(SizedBox(
+            width: 400,
+            height: 750,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    model.notes,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ));
         });
       } else {
