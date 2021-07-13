@@ -68,24 +68,27 @@ class _ApiCallState extends State<ApiCall> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         for (var i in snapshot.data!.data) {
-                          list.add(
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Center(
-                                  child: Expanded(
-                                    child: Center(
-                                      child: Text(
-                                        i.fullName.toString(),
-                                        style: TextStyle(
-                                            fontSize: 15, color: Colors.white),
+                          setState(() {
+                            list.add(
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Center(
+                                    child: Expanded(
+                                      child: Center(
+                                        child: Text(
+                                          i.fullName.toString(),
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
+                                ],
+                              ),
+                            );
+                          });
                         }
                       } else if (snapshot.hasError) {
                         print(snapshot.error);
@@ -98,16 +101,23 @@ class _ApiCallState extends State<ApiCall> {
               ],
             ),
           ),
+          // Row(
+          //   children: <Widget>[
+          //     Expanded(
+          //       child: ElevatedButton(
+          //         onPressed: () {
+          //           displayData();
+          //         },
+          //         child: Text("Get All Teams"),
+          //       ),
+          //     ),
+          //   ],
+          // ),
           Row(
             children: <Widget>[
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    displayData();
-                  },
-                  child: Text("Get All Teams"),
-                ),
-              ),
+              ListView(
+                children: list,
+              )
             ],
           ),
         ],
