@@ -68,12 +68,22 @@ class _ApiCallState extends State<ApiCall> {
                         list.add(
                           Row(
                             children: [
-                              Expanded(
-                                child: Center(
-                                  child: Text(
-                                    i.fullName.toString(),
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.white),
+                              SizedBox(
+                                width: 200,
+                                height: 100,
+                                child: Expanded(
+                                  child: Center(
+                                    child: Center(
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          i.fullName.toString(),
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
