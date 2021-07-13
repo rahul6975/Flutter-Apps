@@ -49,6 +49,12 @@ class _ApiCallState extends State<ApiCall> {
     );
   }
 
+  void setData() {
+    setState(() {
+      list.length;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,62 +63,56 @@ class _ApiCallState extends State<ApiCall> {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            width: 200,
-            height: 600,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: FutureBuilder<Teams>(
-                    future: futureTeams,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        for (var i in snapshot.data!.data) {
-                          setState(() {
-                            list.add(
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Center(
-                                    child: Expanded(
-                                      child: Center(
-                                        child: Text(
-                                          i.fullName.toString(),
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: FutureBuilder<Teams>(
+                  future: futureTeams,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      for (var i in snapshot.data!.data) {
+                        list.add(
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    i.fullName.toString(),
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.white),
                                   ),
-                                ],
+                                ),
                               ),
-                            );
-                          });
-                        }
-                      } else if (snapshot.hasError) {
-                        print(snapshot.error);
-                        return Text("${snapshot.error}");
+                            ],
+                          ),
+                        );
                       }
-                      return CircularProgressIndicator();
-                    },
+                    } else if (snapshot.hasError) {
+                      print(snapshot.error);
+                      return Text("${snapshot.error}");
+                    }
+                    return CircularProgressIndicator();
+                  },
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    setData();
+                  },
+                  child: Text(
+                    "Get All Teams",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          // Row(
-          //   children: <Widget>[
-          //     Expanded(
-          //       child: ElevatedButton(
-          //         onPressed: () {
-          //           displayData();
-          //         },
-          //         child: Text("Get All Teams"),
-          //       ),
-          //     ),
-          //   ],
-          // ),
           Row(
             children: <Widget>[
               ListView(
