@@ -49,12 +49,6 @@ class _ApiCallState extends State<ApiCall> {
     );
   }
 
-  void setData() {
-    setState(() {
-      list.length;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +67,6 @@ class _ApiCallState extends State<ApiCall> {
                       for (var i in snapshot.data!.data) {
                         list.add(
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Expanded(
                                 child: Center(
@@ -103,7 +96,7 @@ class _ApiCallState extends State<ApiCall> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    setData();
+                    displayData();
                   },
                   child: Text(
                     "Get All Teams",
@@ -111,13 +104,6 @@ class _ApiCallState extends State<ApiCall> {
                   ),
                 ),
               ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              ListView(
-                children: list,
-              )
             ],
           ),
         ],

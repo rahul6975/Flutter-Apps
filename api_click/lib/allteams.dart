@@ -11,7 +11,7 @@ class AllTeams extends StatelessWidget {
       appBar: AppBar(
         title: Text("All Teams"),
       ),
-      body: Column(
+      body: ListView(
         children: list,
       ),
     );
