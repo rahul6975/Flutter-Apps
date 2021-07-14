@@ -17,12 +17,12 @@ class _MyAppState extends State<MyApp> {
   String url = "";
   void getApi() async {
     http.Response response =
-        await http.get(Uri.parse('"https://dog.ceo/api/breeds/image/random"'));
+        await http.get(Uri.parse("https://dog.ceo/api/breeds/image/random"));
 
     var jsonData = convert.jsonDecode(response.body) as Map<String, dynamic>;
-    if (response.statusCode == 200) {
+    setState(() {
       url = jsonData['message'];
-    }
+    });
   }
 
   @override
@@ -59,6 +59,8 @@ class _MyAppState extends State<MyApp> {
                 Expanded(
                   child: Image(
                     image: NetworkImage("$url"),
+                    width: 300,
+                    height: 300,
                   ),
                 ),
               ],
