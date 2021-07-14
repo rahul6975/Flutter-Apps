@@ -19,14 +19,14 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   AnimationController? controller;
-  double? value;
-
+  double value = 0.0;
 
   @override
   void initState() {
     super.initState();
+    controller = AnimationController(vsync: vsync)
   }
 
   @override
