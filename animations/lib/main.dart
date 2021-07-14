@@ -27,15 +27,18 @@ class _MyAppState extends State<MyApp> {
         title: Text("Animations"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Row(
             children: <Widget>[
               Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, "page2");
-                  },
-                  child: Text("Go to second page"),
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "page2");
+                    },
+                    child: Text("Go to second page"),
+                  ),
                 ),
               ),
             ],
