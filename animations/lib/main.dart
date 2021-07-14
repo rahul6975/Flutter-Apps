@@ -26,8 +26,9 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    controller = AnimationController(
+        vsync: this, duration: Duration(seconds: 1), upperBound: 100);
+    controller?.forward();
   }
 
   @override
