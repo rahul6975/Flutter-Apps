@@ -20,6 +20,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  AnimationController? controller;
+  double? value;
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +41,28 @@ class _MyAppState extends State<MyApp> {
           Row(
             children: <Widget>[
               Expanded(
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "page2");
-                    },
-                    child: Text("Go to second page"),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "page2");
+                  },
+                  child: Text("Go to second page"),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Hero(
+                  tag: "Hero",
+                  child: Expanded(
+                    child: Image(
+                      image: NetworkImage(
+                          "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
+                      width: 100,
+                      height: 100,
+                    ),
                   ),
                 ),
               ),
