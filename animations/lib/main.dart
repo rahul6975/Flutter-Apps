@@ -26,14 +26,25 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        vsync: this, duration: Duration(seconds: 1), upperBound: 100);
+    controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+
+    // var curve = CurvedAnimation(parent: controller!, curve: Curves.decelerate);
+
     controller?.forward();
+
+    controller?.addListener(() {
+      setState(() {
+        value = controller!.value;
+        print(controller?.value);
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.withOpacity(1),
       appBar: AppBar(
         title: Text("Animations"),
       ),
@@ -47,7 +58,10 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                   onPressed: () {
                     Navigator.pushNamed(context, "page2");
                   },
-                  child: Text("Go to second page"),
+                  child: Text(
+                    "Go to second page",
+                    style: TextStyle(color: Colors.yellow, fontSize: value),
+                  ),
                 ),
               ),
             ],
