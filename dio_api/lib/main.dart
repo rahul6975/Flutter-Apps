@@ -3,7 +3,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MaterialApp(
+      home: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -14,59 +18,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String url = "";
-  void getApi() async {
-    http.Response response =
-        await http.get(Uri.parse("https://dog.ceo/api/breeds/image/random"));
-
-    var jsonData = convert.jsonDecode(response.body) as Map<String, dynamic>;
-    setState(() {
-      url = jsonData['message'];
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getApi();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Dio Api"),
-        ),
-        body: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        getApi();
-                      });
-                    },
-                    child: Text("Hit Me !"),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Image(
-                    image: NetworkImage("$url"),
-                    width: 300,
-                    height: 300,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dio Api'),
+      ),
+      body: Column(
+        children: <Widget>[],
       ),
     );
   }
