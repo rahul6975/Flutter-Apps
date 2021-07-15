@@ -1,3 +1,4 @@
+import 'package:animations/Widgett.dart';
 import 'package:flutter/material.dart';
 import 'Page2.dart';
 
@@ -29,8 +30,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     controller = AnimationController(
         vsync: this, duration: Duration(seconds: 1), upperBound: 100);
 
-    // var curve = CurvedAnimation(parent: controller!, curve: Curves.decelerate);
-
     controller?.forward();
 
     controller?.addListener(() {
@@ -51,6 +50,12 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Widgett(
+            color1: Colors.red,
+            color2: Colors.blue,
+            color3: Colors.green,
+            child: Text("Main"),
+          ),
           Row(
             children: <Widget>[
               Expanded(

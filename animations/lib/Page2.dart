@@ -1,3 +1,4 @@
+import 'package:animations/Widgett.dart';
 import 'package:flutter/material.dart';
 
 class Page2 extends StatefulWidget {
@@ -20,18 +21,22 @@ class _Page2State extends State<Page2> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
-                child: Hero(
-                  tag: "Hero",
-                  child: Expanded(
-                    child: Image(
-                      image: NetworkImage(
-                          "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
-                      width: 200,
-                      height: 400,
-                    ),
-                  ),
-                ),
+              // Hero(
+              //   tag: "Hero",
+              //   child: Expanded(
+              //     child: Image(
+              //       image: NetworkImage(
+              //           "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"),
+              //       width: 200,
+              //       height: 400,
+              //     ),
+              //   ),
+              // ),
+              Widgett(
+                color1: Colors.red,
+                color2: Colors.black,
+                color3: Colors.green,
+                child: Text("Hello"),
               ),
             ],
           ),
