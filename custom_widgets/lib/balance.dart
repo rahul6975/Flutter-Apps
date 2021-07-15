@@ -7,7 +7,7 @@ class Balance extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 500,
-      height: 200,
+      height: 100,
       color: Colors.white70,
       child: Stack(
         children: <Widget>[
