@@ -50,6 +50,8 @@ flutter:
     - images/credit.JPG
     - images/debit.JPG
     - images/others.JPG
+    - images/up.JPG
+    - images/down.JPG
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -60,7 +62,7 @@ flutter:
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
+  # "family" key with the font family name, xvcnd a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:

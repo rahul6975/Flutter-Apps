@@ -1,5 +1,6 @@
 import 'package:custom_widgets/balance.dart';
 import 'package:flutter/material.dart';
+import 'IncomeExpense.dart';
 
 void main() {
   runApp(
@@ -24,6 +25,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Balance();
+    return Icome();
   }
 }
