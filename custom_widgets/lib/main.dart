@@ -87,7 +87,11 @@ class _SinusoidalDemo extends StatelessWidget {
             color: Colors.blue,
           ),
         ),
-        // Icome(),
+        Image.asset(
+          'images/grap.png',
+          width: 500,
+          height: 200,
+        ),
         const SizedBox(height: 50),
         Sinusoidal(
           model: const SinusoidalModel(
@@ -102,19 +106,6 @@ class _SinusoidalDemo extends StatelessWidget {
             color: Colors.blue,
           ),
         ),
-        // const SizedBox(height: 50),
-        // Sinusoidal(
-        //   model: const SinusoidalModel(
-        //     formular: WaveFormular.travelling,
-        //     amplitude: 25,
-        //     waves: 2.5,
-        //     frequency: 0.5,
-        //   ),
-        //   child: Container(
-        //     height: 100,
-        //     color: Colors.blue,
-        //   ),
-        // ),
       ],
     );
   }

@@ -52,6 +52,7 @@ flutter:
     - images/credit.JPG
     - images/debit.JPG
     - images/others.JPG
+    - images/grap.png
     - images/up.JPG
     - images/down.JPG
   #   - images/a_dot_ham.jpeg
