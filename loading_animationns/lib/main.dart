@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:loading_animationns/Page2.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-    routes: {
-      'page2': (context) => Page2(),
-    },
-  ));
+  runApp(
+    MaterialApp(
+      home: MyApp(),
+      routes: {
+        'page2': (context) => Page2(),
+      },
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
