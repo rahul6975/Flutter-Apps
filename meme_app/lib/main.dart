@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 // @dart = 2.9
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
+import 'package:meme_app/amir.dart';
 
 void main() {
   runApp(
     MaterialApp(
       home: MyApp(),
+      routes: {
+        'amir': (context) => Amir(),
+      },
     ),
   );
 }
@@ -35,7 +39,9 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "amir");
+                  },
                   child: Image.asset(
                     'assets/amir.gif',
                     width: 200,
