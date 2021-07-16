@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 
-class Middle extends StatelessWidget {
-  const Middle({Key? key}) : super(key: key);
+class Garib extends StatelessWidget {
+  const Garib({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Mai Middle Class Hu"),
+          title: Text("Mai Garib Hu"),
         ),
         body: Column(
           children: <Widget>[
@@ -29,7 +29,7 @@ class Middle extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    "     Tum Middle Class kyu ho ?",
+                    "     Tum Garib kyu ho ?",
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ),
@@ -44,7 +44,7 @@ class Middle extends StatelessWidget {
                           context: context, builder: (_) => ImageDialog2());
                     },
                     child: Image.asset(
-                      'assets/table.gif',
+                      'assets/ohmg.gif',
                       width: 200,
                       height: 200,
                     ),
@@ -61,7 +61,7 @@ class Middle extends StatelessWidget {
                           context: context, builder: (_) => ImageDialog3());
                     },
                     child: Image.asset(
-                      'assets/com.gif',
+                      'assets/ram.gif',
                       width: 200,
                       height: 200,
                     ),
@@ -78,7 +78,7 @@ class Middle extends StatelessWidget {
                           context: context, builder: (_) => ImageDialog());
                     },
                     child: Image.asset(
-                      'assets/boy.gif',
+                      'assets/cry.gif',
                       width: 200,
                       height: 200,
                     ),
@@ -115,7 +115,13 @@ class ImageDialog extends StatelessWidget {
         height: 200,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: ExactAssetImage('assets/smile.gif'), fit: BoxFit.cover),
+              image: ExactAssetImage('assets/shut.gif'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Text(
+            "gf ne lut liya",
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
         ),
       ),
     );
@@ -133,6 +139,12 @@ class ImageDialog2 extends StatelessWidget {
           image: DecorationImage(
               image: ExactAssetImage('assets/shabas.gif'), fit: BoxFit.cover),
         ),
+        child: Center(
+          child: Text(
+            "Jobless hu",
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+        ),
       ),
     );
   }
@@ -147,7 +159,13 @@ class ImageDialog3 extends StatelessWidget {
         height: 200,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: ExactAssetImage('assets/plz.gif'), fit: BoxFit.cover),
+              image: ExactAssetImage('assets/tenor-10.gif'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Text(
+            "Chori krta hu",
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
         ),
       ),
     );

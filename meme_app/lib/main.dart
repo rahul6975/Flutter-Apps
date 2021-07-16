@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 // @dart = 2.9
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'package:meme_app/amir.dart';
+import 'package:meme_app/garib.dart';
+
+import 'middle.dart';
 
 void main() {
   runApp(
@@ -9,6 +12,8 @@ void main() {
       home: MyApp(),
       routes: {
         'amir': (context) => Amir(),
+        'middle': (context) => Middle(),
+        'garib': (context) => Garib(),
       },
     ),
   );
@@ -55,7 +60,9 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "middle");
+                  },
                   child: Image.asset(
                     'assets/middle.gif',
                     width: 200,
@@ -69,7 +76,9 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "garib");
+                  },
                   child: Image.asset(
                     'assets/garib.gif',
                     width: 200,

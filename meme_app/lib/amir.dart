@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 
 class Amir extends StatelessWidget {
   const Amir({Key? key}) : super(key: key);
@@ -12,6 +13,18 @@ class Amir extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
+            Sinusoidal(
+              reverse: true,
+              model: const SinusoidalModel(
+                amplitude: 15,
+                waves: 5,
+                frequency: -0.5,
+              ),
+              child: Container(
+                height: 50,
+                color: Colors.blue,
+              ),
+            ),
             Row(
               children: <Widget>[
                 Expanded(
@@ -72,6 +85,19 @@ class Amir extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Container(
+              // margin: EdgeInsets.only(top: 5),
+              child: Sinusoidal(
+                model: const SinusoidalModel(
+                  amplitude: 15,
+                  waves: 5,
+                ),
+                child: Container(
+                  height: 50,
+                  color: Colors.blue,
+                ),
+              ),
             ),
           ],
         ),
