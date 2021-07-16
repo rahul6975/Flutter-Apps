@@ -30,12 +30,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_sinusoidals: ^0.1.4
   flip_card: ^0.5.0
+  lottie: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
+# For information on xvhe generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
