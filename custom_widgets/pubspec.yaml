@@ -54,6 +54,7 @@ flutter:
     - images/others.JPG
     - images/grap.png
     - images/up.JPG
+    - assets/graph.json
     - images/down.JPG
   #   - images/a_dot_ham.jpeg
 
@@ -61,7 +62,7 @@ flutter:
   # https://flutter.dev/asvcets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.dev/assets-and-imxvges/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
