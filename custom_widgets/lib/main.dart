@@ -1,5 +1,6 @@
 // @dart=2.9
 import 'package:custom_widgets/balance.dart';
+import 'package:custom_widgets/lottieAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'IncomeExpense.dart';
@@ -87,10 +88,20 @@ class _SinusoidalDemo extends StatelessWidget {
             color: Colors.blue,
           ),
         ),
-        Image.asset(
-          'images/grap.png',
-          width: 500,
-          height: 200,
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LottieAnimations(),
+              ),
+            );
+          },
+          child: Image.asset(
+            'images/grap.png',
+            width: 500,
+            height: 200,
+          ),
         ),
         const SizedBox(height: 50),
         Sinusoidal(

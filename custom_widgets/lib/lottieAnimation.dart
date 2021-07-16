@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class Lottie extends StatefulWidget {
-  Lottie({Key? key}) : super(key: key);
+class LottieAnimations extends StatefulWidget {
+  LottieAnimations({Key? key}) : super(key: key);
 
   @override
-  _LottieState createState() => _LottieState();
+  _LottieAnimationsState createState() => _LottieAnimationsState();
 }
 
-class _LottieState extends State<Lottie> with TickerProviderStateMixin {
+class _LottieAnimationsState extends State<LottieAnimations>
+    with TickerProviderStateMixin {
   late final AnimationController _controller;
 
   @override
@@ -28,12 +29,17 @@ class _LottieState extends State<Lottie> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text("Lottie"),
+        ),
         body: ListView(
           children: [
             Lottie.asset(
-              'assets/graph.json',
+              'assets/LottieLogo1.json',
               controller: _controller,
               onLoaded: (composition) {
+                // Configure the AnimationController with the duration of the
+                // Lottie file and start the animation.
                 _controller
                   ..duration = composition.duration
                   ..forward();
