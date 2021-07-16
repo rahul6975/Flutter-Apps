@@ -6,46 +6,40 @@ class Graph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          color: Colors.amber,
-          width: 300,
-          height: 400,
-          child: Column(
-            children: <Widget>[
-              Row(
+    return Center(
+      child: Container(
+        margin: EdgeInsets.only(left: 30, top: 30),
+        width: 300,
+        height: 200,
+        color: Colors.brown,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 5, left: 5),
+              child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      "Outcome",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
+                  Text(
+                    "Outcome",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ],
               ),
-              Row(
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 30, left: 5),
+              child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      "Rs. 12,560.00",
-                      style: TextStyle(color: Colors.white, fontSize: 17),
-                    ),
+                  Text(
+                    "Rs. 12,560.00",
+                    style: TextStyle(color: Colors.white, fontSize: 17),
                   ),
                 ],
               ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Lottie.asset('assets/graph.json',
-                        width: 300, height: 300),
-                  ),
-                ],
-              ),
-            ],
-          ),
+            ),
+            Lottie.asset('assets/graph.json', width: 300, height: 300),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
