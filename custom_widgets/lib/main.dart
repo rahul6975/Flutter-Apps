@@ -83,11 +83,11 @@ class _SinusoidalDemo extends StatelessWidget {
         //     margin: EdgeInsets.only(top: 200),
         //     child: RaisedButton(
         //       onPressed: () => hello.currentState.toggleCard(),
-        //       child: Image.asset(
-        //         'images/grap.png',
-        //         width: 300,
-        //         height: 100,
-        //       ),
+        // child: Image.asset(
+        //   'images/grap.png',
+        //   width: 300,
+        //   height: 100,
+        // ),
         //     ),
         //   ),
         //   back: Container(
@@ -100,6 +100,13 @@ class _SinusoidalDemo extends StatelessWidget {
         //     ),
         //   ),
         // ),
+        // Image.asset(
+        //   'images/grap.png',
+        //   width: 500,
+        //   height: 200,
+        // ),
+        Lottie.asset('assets/graph.json', width: 500, height: 200),
+
         const SizedBox(height: 50),
         Sinusoidal(
           model: const SinusoidalModel(
