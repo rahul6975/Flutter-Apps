@@ -35,7 +35,7 @@ class _LottieAnimationsState extends State<LottieAnimations>
         body: ListView(
           children: [
             Lottie.asset(
-              'assets/LottieLogo1.json',
+              'assets/graph.json',
               controller: _controller,
               onLoaded: (composition) {
                 // Configure the AnimationController with the duration of the

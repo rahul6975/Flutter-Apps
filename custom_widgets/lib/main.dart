@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:custom_widgets/balance.dart';
 import 'package:custom_widgets/lottieAnimation.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'IncomeExpense.dart';
@@ -31,22 +32,9 @@ Widget flip() {
   );
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({Key key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return Icome();
-  }
-}
-
 class _SinusoidalDemo extends StatelessWidget {
   GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+  GlobalKey<FlipCardState> hello = GlobalKey<FlipCardState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -88,21 +76,30 @@ class _SinusoidalDemo extends StatelessWidget {
             color: Colors.blue,
           ),
         ),
-        TextButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => LottieAnimations(),
-              ),
-            );
-          },
-          child: Image.asset(
-            'images/grap.png',
-            width: 500,
-            height: 200,
-          ),
-        ),
+        // FlipCard(
+        //   key: hello,
+        //   flipOnTouch: true,
+        //   front: Container(
+        //     margin: EdgeInsets.only(top: 200),
+        //     child: RaisedButton(
+        //       onPressed: () => hello.currentState.toggleCard(),
+        //       child: Image.asset(
+        //         'images/grap.png',
+        //         width: 300,
+        //         height: 100,
+        //       ),
+        //     ),
+        //   ),
+        //   back: Container(
+        //     child: ListView(
+        //       children: [
+        //         Lottie.asset(
+        //           'assets/graph.json',
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
         const SizedBox(height: 50),
         Sinusoidal(
           model: const SinusoidalModel(
