@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
+  # The following adds the Cupvvrtino Icons font to your application.
   # Use with the CupertinoIcons class for iOe style icons.
   cupertino_icons: ^1.0.2
   flutter_sinusoidals: ^0.1.4
