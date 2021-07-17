@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 
 class Garib extends StatelessWidget {
-  const Garib({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
