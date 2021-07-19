@@ -9,6 +9,7 @@ void main() {
       initialRoute: '/',
       routes: {
         '/': (context) => SplashScreen(),
+        'form': (context) => SplashScreen(),
       },
     ),
   );

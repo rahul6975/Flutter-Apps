@@ -10,33 +10,57 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Color? color;
+
   void changeBg() {
     setState(() {
-      getColor(Colors.grey);
+      color = Colors.black;
     });
-    Duration duration = Duration(seconds: 5);
-    sleep(duration);
+    // sleep(Duration(seconds: 3));
     setState(() {
-      getColor(Colors.white);
+      color = Colors.white;
     });
   }
 
-  Color getColor(Color color) {
-    return color;
+  @override
+  void initState() {
+    super.initState();
+    changeBg();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: getColor(Colors.grey),
+        backgroundColor: color,
         appBar: AppBar(
           title: Text("Splash Screen"),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              children: <Widget>[],
+            Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Center(
+                    child: Center(
+                      child: Text("color changing"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Center(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Go to next"),
+                  ))
+                ],
+              ),
             ),
           ],
         ),
