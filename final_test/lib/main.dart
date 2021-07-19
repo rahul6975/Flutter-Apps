@@ -1,4 +1,5 @@
 import 'package:final_test/InputForm.dart';
+import 'package:final_test/LoginPage.dart';
 import 'package:final_test/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ void main() {
       routes: {
         '/': (context) => SplashScreen(),
         "form": (context) => InputForm(),
+        "login": (context) => LoginPage(),
       },
     ),
   );

@@ -204,7 +204,9 @@ class _InputFormState extends State<InputForm> {
             child: Visibility(
               visible: visible,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "login");
+                },
                 child: Text("Proceed"),
               ),
             ),
