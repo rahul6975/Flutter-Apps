@@ -54,7 +54,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: <Widget>[
                   Expanded(
                       child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "form");
+                    },
                     child: Text("Go to next"),
                   ))
                 ],
