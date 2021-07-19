@@ -10,8 +10,21 @@ class InputForm extends StatefulWidget {
 class _InputFormState extends State<InputForm> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: null,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Input Form"),
+      ),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text("Enter name"),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

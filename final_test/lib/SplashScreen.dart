@@ -36,18 +36,18 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Center(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Center(
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Center(
                     child: Center(
                       child: Text("color changing"),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Center(
               child: Row(
