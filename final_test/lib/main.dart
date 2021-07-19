@@ -1,9 +1,6 @@
 import 'package:final_test/Form.dart';
-import 'package:final_test/Form.dart';
 import 'package:final_test/SplashScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 void main() {
   runApp(
