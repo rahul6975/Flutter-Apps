@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               color: Colors.white70,
               width: 300,
-              height: 100,
+              height: 150,
               child: Column(
                 children: [
                   Row(
