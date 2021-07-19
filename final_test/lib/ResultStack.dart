@@ -6,6 +6,7 @@ class ResultStack extends StatelessWidget {
   String gender;
   String phone;
   String age;
+  String password;
 
   ResultStack(
       {Key? key,
@@ -13,14 +14,15 @@ class ResultStack extends StatelessWidget {
       required this.email,
       required this.gender,
       required this.phone,
+      required this.password,
       required this.age})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 300,
+      width: 220,
+      height: 200,
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: <Widget>[
@@ -29,42 +31,91 @@ class ResultStack extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("You have entered :"),
+                    child: Text(
+                      "You have entered :",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        "$name",
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.brown,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      "$email",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("$name"),
+                    child: Text(
+                      "$gender",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("$email"),
+                    child: Text(
+                      "$phone",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("$gender"),
+                    child: Text(
+                      "$age",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("$phone"),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text("$age"),
+                    child: Text(
+                      "$password",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),

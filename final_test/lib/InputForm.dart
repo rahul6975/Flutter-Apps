@@ -14,10 +14,12 @@ class _InputFormState extends State<InputForm> {
   String? genderCart = 'Female';
   String? ageCart = '10-20';
   bool visible = false;
+  bool isVisible = true;
 
-  TextEditingController? controller;
-  TextEditingController? emailController;
-  TextEditingController? phoneController;
+  TextEditingController controller = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   List<DropdownMenuItem<String>> getGender() {
     List<DropdownMenuItem<String>> items = [];
@@ -152,23 +154,58 @@ class _InputFormState extends State<InputForm> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                    child: ElevatedButton(
-                      onPressed: (){},
-                      child: Text("Submit "),
-                    ))
+                  child: Text("Set Password :"),
+                ),
+                Expanded(
+                  child: TextField(
+                    controller: passwordController,
+                  ),
+                ),
               ],
             ),
           ),
           Container(
             margin: EdgeInsets.all(10),
             child: Visibility(
+              visible: isVisible,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          visible = true;
+                          isVisible = false;
+                        });
+                      },
+                      child: Text("Submit "),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            color: Colors.cyanAccent,
+            margin: EdgeInsets.all(10),
+            child: Visibility(
               visible: visible,
               child: ResultStack(
-                name: controller!.text.toString(),
-                age: ageCart.toString(),
-                phone: phoneController!.text.toString(),
+                password: passwordController.text.toString(),
+                name: controller.text.toString(),
+                age: "21",
+                phone: phoneController.text.toString(),
                 gender: genderCart.toString(),
-                email: emailController!.text.toString(),
+                email: emailController.text.toString(),
+              ),
+            ),
+          ),
+          Container(
+            child: Visibility(
+              visible: visible,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Proceed"),
               ),
             ),
           ),
