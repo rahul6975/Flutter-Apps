@@ -65,6 +65,18 @@ class _LoginPageState extends State<LoginPage> {
                       )),
                     ],
                   ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "success");
+                          },
+                          child: Text("Login"),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

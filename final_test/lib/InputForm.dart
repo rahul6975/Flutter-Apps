@@ -203,11 +203,13 @@ class _InputFormState extends State<InputForm> {
           Container(
             child: Visibility(
               visible: visible,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "login");
-                },
-                child: Text("Proceed"),
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "login");
+                  },
+                  child: Text("Proceed"),
+                ),
               ),
             ),
           ),
