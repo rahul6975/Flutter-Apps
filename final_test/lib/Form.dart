@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class Form extends StatefulWidget {
@@ -10,6 +12,11 @@ class Form extends StatefulWidget {
 class _FormState extends State<Form> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Form"),
+      ),
+      body: Column(),
+    );
   }
 }

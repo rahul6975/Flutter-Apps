@@ -1,3 +1,5 @@
+import 'package:final_test/Form.dart';
+import 'package:final_test/Form.dart';
 import 'package:final_test/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -9,7 +11,7 @@ void main() {
       initialRoute: '/',
       routes: {
         '/': (context) => SplashScreen(),
-        'form': (context) => SplashScreen(),
+        'form': (context) => Form(),
       },
     ),
   );
