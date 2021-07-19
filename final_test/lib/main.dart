@@ -1,9 +1,17 @@
+import 'package:final_test/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => SplashScreen(),
+      },
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -60,6 +68,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
