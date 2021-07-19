@@ -22,8 +22,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  List<String> fruits = ['Oranges', 'Apples', 'Bananas'];
-  String? cartItem = 'No Items';
   AnimationController? controller;
   double value = 0.0;
 
@@ -40,30 +38,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         value = controller!.value;
       });
     });
-  }
-
-  List<DropdownMenuItem<String>> getItems() {
-    List<DropdownMenuItem<String>> items = [];
-    fruits.forEach((element) {
-      var eachItem = DropdownMenuItem(
-        child: Text('$element'),
-        value: element,
-      );
-      items.add(eachItem);
-    });
-    return items;
-  }
-
-  DropdownButton getAndroidDropDown() {
-    return DropdownButton<String>(
-      value: 'Apples',
-      items: getItems(),
-      onChanged: (value) {
-        setState(() {
-          cartItem = value;
-        });
-      },
-    );
   }
 
   @override
