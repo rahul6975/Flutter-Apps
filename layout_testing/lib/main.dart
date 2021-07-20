@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -43,7 +41,6 @@ class MyApp extends StatelessWidget {
                 child: Text("sized box"),
                 height: 100,
                 width: 20,
-                
               ),
               Divider(
                 height: 10,
@@ -105,4 +102,3 @@ class MyApp extends StatelessWidget {
     ));
   }
 }
-
