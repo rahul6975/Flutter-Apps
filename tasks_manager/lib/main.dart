@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: Text(
                   tasks,
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+                  style: TextStyle(fontSize: 30, color: Colors.black),
                 ),
               ),
             ],
