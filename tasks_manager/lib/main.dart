@@ -21,16 +21,22 @@ class _MyAppState extends State<MyApp> {
 
   void addToList(String tasks) {
     setState(() {
-      list.add(Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(
-              "Hello",
-              style: TextStyle(fontSize: 15, color: Colors.black),
-            ),
+      print("Hello");
+      list.add(
+        Container(
+          margin: EdgeInsets.all(30),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  tasks,
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+              ),
+            ],
           ),
-        ],
-      ));
+        ),
+      );
     });
   }
 
@@ -43,9 +49,9 @@ class _MyAppState extends State<MyApp> {
       body: Column(
         children: <Widget>[
           Container(
-            color: Colors.blue,
-            width: 300,
-            height: 400,
+            color: Colors.cyan,
+            width: 380,
+            height: 500,
             child: ListView(
               children: list,
             ),
