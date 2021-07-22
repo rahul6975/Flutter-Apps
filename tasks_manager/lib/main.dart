@@ -1,11 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => Data(),
+      child: MaterialApp(
+        home: MyApp(),
+      ),
     ),
   );
+}
+
+class Data extends ChangeNotifier {
+  List<Widget> list = [];
+  void addTask(String task) {
+    list.add(
+      Container(
+        margin: EdgeInsets.all(30),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                task,
+                style: TextStyle(fontSize: 30, color: Colors.black),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    notifyListeners();
+  }
 }
 
 class MyApp extends StatefulWidget {
@@ -53,16 +79,13 @@ class _MyAppState extends State<MyApp> {
             width: 380,
             height: 500,
             child: ListView(
-              children: list,
+              children: Provider.of<Data>(context).list,
             ),
           ),
           Row(
             children: <Widget>[
               Expanded(
-                child: AddTasks(
-                  addTasks: addToList,
-                  task: task,
-                ),
+                child: AddTasks(),
               ),
             ],
           ),
@@ -73,11 +96,6 @@ class _MyAppState extends State<MyApp> {
 }
 
 class AddTasks extends StatelessWidget {
-  late Function addTasks;
-  late String task;
-
-  AddTasks({required this.addTasks, required this.task});
-
   TextEditingController controller = TextEditingController();
 
   void showBottomSheet(var context) {
@@ -104,7 +122,8 @@ class AddTasks extends StatelessWidget {
                 ),
                 subtitle: ElevatedButton(
                   onPressed: () {
-                    addTasks(controller.text);
+                    Data data = Provider.of<Data>(context, listen: false);
+                    data.addTask(controller.text);
                   },
                   child: Text("Add"),
                 ),
