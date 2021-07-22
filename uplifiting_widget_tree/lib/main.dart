@@ -64,9 +64,7 @@ class _Level1State extends State<Level1> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        child: Text("Level 1"),
-      ),
+      child: Text("Level 1"),
     );
   }
 }
