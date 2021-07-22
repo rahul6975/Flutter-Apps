@@ -26,10 +26,23 @@ class Data extends ChangeNotifier {
                 style: TextStyle(fontSize: 30, color: Colors.black),
               ),
             ),
+            TextButton(
+              onPressed: () {},
+              child: Image.asset(
+                'assets/remove.png',
+                width: 20,
+                height: 20,
+              ),
+            ),
           ],
         ),
       ),
     );
+    notifyListeners();
+  }
+
+  void deleteTask() {
+    list.remove(0);
     notifyListeners();
   }
 }
@@ -45,27 +58,6 @@ class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
   String task = "";
 
-  void addToList(String tasks) {
-    setState(() {
-      print("Hello");
-      list.add(
-        Container(
-          margin: EdgeInsets.all(30),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  tasks,
-                  style: TextStyle(fontSize: 30, color: Colors.black),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +66,25 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Column(
         children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: AddTasks(),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 10),
+                child: Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Data data = Provider.of<Data>(context, listen: false);
+                      data.deleteTask();
+                    },
+                    child: Text("Delete Task"),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Container(
             color: Colors.cyan,
             width: 380,
@@ -81,13 +92,6 @@ class _MyAppState extends State<MyApp> {
             child: ListView(
               children: Provider.of<Data>(context).list,
             ),
-          ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: AddTasks(),
-              ),
-            ],
           ),
         ],
       ),
