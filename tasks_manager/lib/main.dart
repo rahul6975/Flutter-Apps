@@ -18,20 +18,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
 
-  void addToList(var tasks) {
+  void addToList(String tasks) {
     setState(() {
-      list.add(
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: Text(
-                tasks,
-                style: TextStyle(fontSize: 15),
-              ),
+      list.add(Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              tasks,
+              style: TextStyle(fontSize: 15),
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ));
     });
   }
 
@@ -43,19 +41,19 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: ListView(
-                  children: list,
-                ),
-              ),
-            ],
+          Container(
+            width: 400,
+            height: 400,
+            child: ListView(
+              children: list,
+            ),
           ),
           Row(
             children: <Widget>[
               Expanded(
-                child: AddTasks(),
+                child: AddTasks(
+                  addTasks: addToList,
+                ),
               ),
             ],
           ),
@@ -65,15 +63,16 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class AddTasks extends StatefulWidget {
-  AddTasks({Key? key}) : super(key: key);
+class AddTasks extends StatelessWidget {
+  late void addTasks;
 
-  @override
-  _AddTasksState createState() => _AddTasksState();
-}
+  AddTasks({required this.addTasks});
 
-class _AddTasksState extends State<AddTasks> {
-  void showBottomSheet() {
+  TextEditingController controller = TextEditingController();
+
+  void addNewsTasks(var string) {}
+
+  void showBottomSheet(var context) {
     showModalBottomSheet(
         context: context,
         backgroundColor: Colors.white,
@@ -87,18 +86,20 @@ class _AddTasksState extends State<AddTasks> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.email),
-                title: Text('Send email'),
-                onTap: () {
-                  print('Send email');
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.phone),
-                title: Text('Call phone'),
-                onTap: () {
-                  print('Call phone');
-                },
+                leading: Image.asset(
+                  'assets/add.png',
+                  width: 20,
+                  height: 20,
+                ),
+                title: TextField(
+                  controller: controller,
+                ),
+                subtitle: ElevatedButton(
+                  onPressed: () {
+                    addNewsTasks(controller.text);
+                  },
+                  child: Text("Add"),
+                ),
               ),
             ],
           );
@@ -110,7 +111,7 @@ class _AddTasksState extends State<AddTasks> {
     return Container(
       child: ElevatedButton(
         onPressed: () {
-          showBottomSheet();
+          showBottomSheet(context);
         },
         child: Text("Add Tasks"),
       ),
