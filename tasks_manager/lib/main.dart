@@ -17,6 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<Widget> list = [];
+  String task = "";
 
   void addToList(String tasks) {
     setState(() {
@@ -24,8 +25,8 @@ class _MyAppState extends State<MyApp> {
         children: <Widget>[
           Expanded(
             child: Text(
-              tasks,
-              style: TextStyle(fontSize: 15),
+              "Hello",
+              style: TextStyle(fontSize: 15, color: Colors.black),
             ),
           ),
         ],
@@ -42,7 +43,8 @@ class _MyAppState extends State<MyApp> {
       body: Column(
         children: <Widget>[
           Container(
-            width: 400,
+            color: Colors.blue,
+            width: 300,
             height: 400,
             child: ListView(
               children: list,
@@ -53,6 +55,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: AddTasks(
                   addTasks: addToList,
+                  task: task,
                 ),
               ),
             ],
@@ -64,13 +67,12 @@ class _MyAppState extends State<MyApp> {
 }
 
 class AddTasks extends StatelessWidget {
-  late void addTasks;
+  late Function addTasks;
+  late String task;
 
-  AddTasks({required this.addTasks});
+  AddTasks({required this.addTasks, required this.task});
 
   TextEditingController controller = TextEditingController();
-
-  void addNewsTasks(var string) {}
 
   void showBottomSheet(var context) {
     showModalBottomSheet(
@@ -96,7 +98,7 @@ class AddTasks extends StatelessWidget {
                 ),
                 subtitle: ElevatedButton(
                   onPressed: () {
-                    addNewsTasks(controller.text);
+                    addTasks(controller.text);
                   },
                   child: Text("Add"),
                 ),
