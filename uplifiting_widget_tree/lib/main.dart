@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: HomePage(),
+    ChangeNotifierProvider(
+      create: (context) => Data(),
+      child: MaterialApp(
+        home: HomePage(),
+      ),
     ),
   );
 }
@@ -34,14 +38,29 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Expanded(
-              child: Text(
-                "$count",
-                style: TextStyle(fontSize: 25),
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "Ok",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Level1(),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      count++;
+                      Data data = Provider.of<Data>(context, listen: false);
+                      data.addItem();
+                    },
+                    child: Text("Click me"),
+                  ),
+                ),
+              ],
             ),
             Expanded(
               child: Level2(count: count, update: updateWidget),
@@ -49,22 +68,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class Level1 extends StatefulWidget {
-  const Level1({Key? key}) : super(key: key);
-
-  @override
-  _Level1State createState() => _Level1State();
-}
-
-class _Level1State extends State<Level1> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("Level 1"),
     );
   }
 }
@@ -77,39 +80,17 @@ class Level2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          child: Container(
-            child: Text("Level 2:  $count"),
-          ),
-        ),
-        Container(
-          child: Container(
-            child: Level3(count: count),
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            update();
-          },
-          child: Text("+"),
-        ),
-      ],
+      children: Provider.of<Data>(context).widgetList,
     );
   }
 }
 
-class Level3 extends StatelessWidget {
-  late int count;
-
-  Level3({required this.count});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("count 3 : $count"),
-    );
+class Data extends ChangeNotifier {
+  List<Expanded> widgetList = [Expanded(child: Text("1"))];
+  int count = 1;
+  void addItem() {
+    count++;
+    widgetList.add(Expanded(child: Text("$count")));
+    notifyListeners();
   }
 }
