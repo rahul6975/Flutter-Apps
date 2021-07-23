@@ -38,14 +38,13 @@ class Data extends ChangeNotifier {
         ),
       ),
     );
+    notifyListeners();
   }
 
   void deleteTask() {
-    list.remove(0);
-    // notifyListeners();
+    list.removeLast();
+    notifyListeners();
   }
-
-  notifyListeners();
 }
 
 class MyApp extends StatefulWidget {
