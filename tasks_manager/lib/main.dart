@@ -38,13 +38,14 @@ class Data extends ChangeNotifier {
         ),
       ),
     );
-    notifyListeners();
   }
 
   void deleteTask() {
     list.remove(0);
-    notifyListeners();
+    // notifyListeners();
   }
+
+  notifyListeners();
 }
 
 class MyApp extends StatefulWidget {
@@ -147,6 +148,5 @@ class AddTasks extends StatelessWidget {
         child: Text("Add Tasks"),
       ),
     );
-    
   }
 }
