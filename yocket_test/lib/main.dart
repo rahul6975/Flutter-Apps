@@ -1,24 +1,11 @@
 // ignore: prefer_double_quotes
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-// import 'package:http/http.dart' as https;
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
-// ignore: prefer_double_quotes
 import 'package:flutter/material.dart';
-
-// ignore: unused_import, prefer_double_quotes
-
 import 'AllResponse.dart';
-import 'SearchWidget.dart';
 
 void main() {
-  // IMPORTANT: Uncomment the line `enableFlutterDriverExtension();`
-  // before making a submission.
-  //Failure in doing so will not execute the automated testcases.
-
-  // enableFlutterDriverExtension();
   runApp(
     MaterialApp(
       home: MyApp(),
@@ -60,15 +47,6 @@ class _MyAppState extends State<MyApp> {
     });
     super.initState();
   }
-
-  // void _filterCountries(value) {
-  //   setState(() {
-  //     filteredCountries = countries
-  //         .where((country) =>
-  //             country['name'].toLowerCase().contains(value.toLowerCase()))
-  //         .toList();
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
