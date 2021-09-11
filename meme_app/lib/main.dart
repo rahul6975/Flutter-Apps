@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 // @dart = 2.9
+import 'package:flutter/material.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'package:meme_app/amir.dart';
 import 'package:meme_app/garib.dart';
-
 import 'middle.dart';
 
 void main() {
@@ -11,8 +10,8 @@ void main() {
     MaterialApp(
       home: MyApp(),
       routes: {
-        'amir': (context) => Amir(),
         'middle': (context) => Middle(),
+        'amir': (context) => Amir(),
         'garib': (context) => Garib(),
       },
     ),
