@@ -87,7 +87,6 @@ class Middle extends StatelessWidget {
               ],
             ),
             Container(
-              // margin: EdgeInsets.only(top: 5),
               child: Sinusoidal(
                 model: const SinusoidalModel(
                   amplitude: 15,
