@@ -21,7 +21,7 @@ class Amir extends StatelessWidget {
                 frequency: -0.5,
               ),
               child: Container(
-                height: 50,
+                height: 49,
                 color: Colors.blue,
               ),
             ),
