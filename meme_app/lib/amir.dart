@@ -21,7 +21,7 @@ class Amir extends StatelessWidget {
                 frequency: -0.5,
               ),
               child: Container(
-                height: 49,
+                height: 50,
                 color: Colors.blue,
               ),
             ),
@@ -94,7 +94,7 @@ class Amir extends StatelessWidget {
                   waves: 5,
                 ),
                 child: Container(
-                  height: 50,
+                  height: 49,
                   color: Colors.blue,
                 ),
               ),
