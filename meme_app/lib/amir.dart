@@ -43,6 +43,7 @@ class Amir extends StatelessWidget {
                       await showDialog(
                           context: context, builder: (_) => ImageDialog2());
                     },
+
                     child: Image.asset(
                       'assets/business.gif',
                       width: 200,
