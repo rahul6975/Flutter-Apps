@@ -47,7 +47,7 @@ class Amir extends StatelessWidget {
                     child: Image.asset(
                       'assets/business.gif',
                       width: 200,
-                      height: 200,
+                      height: 199,
                     ),
                   ),
                 ),
